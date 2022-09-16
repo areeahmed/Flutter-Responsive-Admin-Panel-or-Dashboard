@@ -25,34 +25,14 @@ class RecentFiles extends StatelessWidget {
             "Recent Files",
             style: Theme.of(context).textTheme.subtitle1,
           ),
-          SizedBox(
-            width: double.infinity,
-            child: DataTable2(
-              columnSpacing: defaultPadding,
-              minWidth: 600,
-              columns: [
-                DataColumn(
-                  label: Text("File Name"),
-                ),
-                DataColumn(
-                  label: Text("Date"),
-                ),
-                DataColumn(
-                  label: Text("Size"),
-                ),
-              ],
-              rows: List.generate(
-                demoRecentFiles.length,
-                (index) => recentFileDataRow(demoRecentFiles[index]),
-              ),
-            ),
-          ),
+          SizedBox(width: double.infinity, child: Center(child: Text('data'))),
         ],
       ),
     );
   }
 }
 
+// todo retrieve those data from firebase
 DataRow recentFileDataRow(RecentFile fileInfo) {
   return DataRow(
     cells: [
