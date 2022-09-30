@@ -31,9 +31,52 @@ class MyFiles extends StatelessWidget {
               onPressed: () {
                 // navigate to another screen
                 // screen contain name - email access - get the link
+                showBottomSheet(
+                    context: context,
+                    builder: (context) => Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                    height: 110,
+                                    width: 150,
+                                    child: ElevatedButton.icon(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.cancel,
+                                      ),
+                                      label: Text(
+                                        'Cancel',
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 110,
+                                    width: 150,
+                                    child: ElevatedButton.icon(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.save,
+                                      ),
+                                      label: Text(
+                                        'Save',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ));
               },
               icon: Icon(Icons.add),
-              label: Text("Add New"),
+              label: Text("Add New Class"),
             ),
           ],
         ),

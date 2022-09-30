@@ -3,8 +3,8 @@ import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Header extends StatelessWidget {
-  Header({
+class CustomHeader extends StatelessWidget {
+  CustomHeader({
     Key? key,
     required this.text,
   }) : super(key: key);
@@ -14,11 +14,9 @@ class Header extends StatelessWidget {
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
-          IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: (() {
-                print('Drawer Button pressed');
-              })),
+          SizedBox(
+            width: 40,
+          ),
         if (!Responsive.isMobile(context))
           Text(
             text,

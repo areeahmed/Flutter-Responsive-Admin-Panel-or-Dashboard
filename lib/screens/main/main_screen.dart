@@ -4,13 +4,10 @@ import 'package:admin/screens/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'components/side_menu.dart';
-
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: context.read<MenuController>().scaffoldKey,
       drawer: SideMenu(),
       body: SafeArea(
         child: Row(
@@ -30,6 +27,72 @@ class MainScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SideMenu extends StatelessWidget {
+  const SideMenu({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [
+          DrawerHeader(
+            child: Image.asset(
+              "assets/images/logo.png",
+              scale: 2,
+            ),
+          ),
+          DrawerListTile(
+            title: "Dashboard",
+            icon: Icons.dashboard,
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "New Class",
+            icon: Icons.class_,
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "New Student",
+            icon: Icons.people_alt,
+            press: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DrawerListTile extends StatelessWidget {
+  const DrawerListTile({
+    Key? key,
+    // For selecting those three line once press "Command+D"
+    required this.title,
+    required this.icon,
+    required this.press,
+  }) : super(key: key);
+
+  final String title;
+  final VoidCallback press;
+  final IconData? icon;
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      onTap: press,
+      horizontalTitleGap: 0.0,
+      leading: Icon(
+        icon,
+        color: Colors.white,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(color: Colors.white),
       ),
     );
   }
